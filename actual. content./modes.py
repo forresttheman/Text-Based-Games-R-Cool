@@ -14,10 +14,6 @@ import ifs
 from ifs import *
 
 
-#lists
-atts = ["a cool", "a lovely", "an epic", "a fabulous", "a nice", "a good"]
-nameTitles = []
-
 def start():
   resources.clearConsole()
   ifs.nameBlock1()

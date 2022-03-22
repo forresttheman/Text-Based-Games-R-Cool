@@ -1,9 +1,7 @@
-import sys
 import colorama
 from colorama import Fore
 import time
 import random
-import os
 import modes
 import resources
 from resources import *
@@ -11,6 +9,9 @@ from modes import *
 import characters
 from characters import *
 
+#lists
+atts = ["a cool", "a lovely", "an epic", "a fabulous", "a nice", "a good"]
+nameTitles = []
 
 #ifs
 def nameBlock1():
@@ -34,11 +35,11 @@ def nameBlock1():
 
   elif name == characters.char1Name:
     resources.slowprint1(Fore.BLUE+"Oh wow! That's my name!")
-    resources.slowprint1(Fore.BLUE+"So happy to make your acquintance, "+char1Name+".")
+    resources.slowprint1(Fore.BLUE+"So happy to make your acquintance, "+characters.char1Name+".")
     characters.sameName = True
     
   else:
-    resources.slowprint1(Fore.BLUE+"Hm. "+name+". What "+random.choice(modes.atts)+" name!")
+    resources.slowprint1(Fore.BLUE+"Hm. "+name+". What "+random.choice(atts)+" name!")
 
     
   time.sleep(1)

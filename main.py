@@ -1,5 +1,3 @@
-import time
-import os
 import resources
 from resources import *
 import modes
