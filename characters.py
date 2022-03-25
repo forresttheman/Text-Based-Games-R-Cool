@@ -49,26 +49,31 @@ def charFrame(charDict, charList):
   charList.append(charName)
 
 #call this to change any values in the character's dictionary
-def UpdateCharDict(dict, moralityf, antagonizef, antThreshf):
+def UpdateCharDict(dict, moralityD, antagonizeD, antThreshD):
   #print(dict)
-  #time.sleep(5)
-  
-  if moralityf != 0:
-    if dict["morality"] != moralityf:
-      dict["morality"] = moralityf
-  
-  if antagonizef != 0:
-    if dict["antagonize"] != antagonizef:
-      dict["antagonize"] = antagonizef
+  #time.sleep(3)
 
-  if antThreshf != 0:
-    if dict["antThresh"] != antThreshf:
-      dict["antThresh"] = antThreshf
+  #if the morality has been changed
+  #-1 bcs a character with a value of 0 is the evil extreme
+  if moralityD != -1:
+    #add the new morality to old morality and make that the new morality value in dictionary
+    moralityDelta = dict["morality"] + moralityD
+    dict["morality"] = moralityDelta
+
+  #is the antagonize has changed
+  if antagonizeD != 0:
+    antagonizeDelta = dict["antagonize"] + antagonizeD
+    dict["antagonize"] = antagonizeDelta
+
+  if antThreshD != 0:
+    #if the anntagonize threshold is different, update it
+    if dict["antThresh"] != antThreshD:
+      dict["antThresh"] = antThreshD
       
-  #time.sleep(5)
+  #time.sleep(2)
   #print(dict)
 
 #intialize char dicts in case values are broken somehow
 def InitializeCharDicts():
   #char 1
-  UpdateCharDict(SarahDict, 0, 0, 0)
+  UpdateCharDict(SarahDict, -1, 1, 0)

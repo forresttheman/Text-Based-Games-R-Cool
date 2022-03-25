@@ -43,6 +43,8 @@ def nameBlock1():
     resources.slowprint3(Fore.RED+"Stop messing with me.")
     resources.slowprint2(Fore.BLUE+"Since you seem to be reluctant to give an identifier, I'll just call you Traveler.")
     resources.subName = True
+    #this function makes sarah's antagonize go up to 1.
+    characters.UpdateCharDict(characters.SarahDict, 0, 1, 0)
     name = "Traveler"
 
   #don't threaten your friends...
@@ -63,7 +65,7 @@ def nameBlock1():
   #you aren't markiplier... (probably)
   #and you definetly don't have a 1 character name
   if (len(name)<4 or len(name)>12 or name == 'Markiplier' or name == 'markiplier') and (resources.threatCount < 1):
-    resources.slowprint1(Fore.BLUE+"Hm. It seems that my connection is weak. Oh! There is the problem...")#add some cool stuff here? hacker????
+    resources.slowprint1(Fore.BLUE+"Hm. It seems that my connection is weak. Oh! There is the problem...")
     resources.indentPoint5x2()
     resources.slowload(1)
     resources.slowprint1(Fore.BLUE+"That was easy. Can you hear me now, traveler?")
@@ -89,6 +91,9 @@ def nameBlock1():
   modes.nameTitles.append(name)
   #print(modes.nameTitles)
 
+###############################################
+###############################################
+###############################################
 
 def op1():
   name = modes.nameTitles[0]
@@ -139,3 +144,7 @@ def op1():
   else:
     resources.slowprint1(Fore.RED+"I was hoping you could help me out a little here. I don't really have an idea why I'm here, wherever here is.")
     #well, since you asked so nicely, of course i will. ++charisma
+
+###############################################
+###############################################
+###############################################
