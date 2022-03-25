@@ -86,8 +86,8 @@ def nameBlock1():
     
     
   time.sleep(1)
-  modes.nameTitles[0] = name
-  print(modes.nameTitles)
+  modes.nameTitles.append(name)
+  #print(modes.nameTitles)
 
 
 def op1():

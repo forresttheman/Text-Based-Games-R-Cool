@@ -16,5 +16,6 @@ from ifs import *
 
 def start():
   resources.clearConsole()
+  characters.InitializeCharDicts()
   ifs.nameBlock1()
   ifs.op1()

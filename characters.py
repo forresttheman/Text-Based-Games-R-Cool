@@ -1,8 +1,4 @@
 import time
-import modes
-import resources
-from resources import *
-from modes import *
 import characters
 from characters import *
 
@@ -10,11 +6,6 @@ from characters import *
 morality = 100 #0 is completely murderous, uncaring, 200 is angelic and wonderful, 100 is neutral
 antagonize = 0 
 #adds up, if passes threshold, character gets mad at you. Have diff aggression levels for repeated bad/good actions
-
-#char lists
-characterList = []
-char1MoralitySaved = []
-
 
 #antagonize thresholds for characters
 veryFriendly = 50
@@ -24,20 +15,19 @@ unFriendly = 20
 veryUnFriendly = 10
 insane = 5
 
+#char lists
+characterList = []
+char1MoralitySaved = []
+
+#char specific lists
+SarahList = []
+
 #names and related things
 char1Name = "Sarah"
 sameName = False
 
 #character dictionaries
-#these hold base values
-SarahDictBaseValues = {
-  "morality": 150,
-  "antagonize": 0,
-  "antThresh": veryFriendly,
-  "charName": char1Name
-}
-
-#these hold actual working values
+#these hold working values and start out with base values
 SarahDict = {
   "morality": 150,
   "antagonize": 0,
@@ -46,21 +36,39 @@ SarahDict = {
 }
 
 #functions
-def UpdateCharDict(morality, antagonize, antThresh):
-  #print(SarahDict)
+#do i even need this function?
+def charFrame(charDict, charList):
+  morality = charDict["morality"]
+  antagonize = charDict["antagonize"]
+  antThresh = charDict["antThresh"]
+  charName = charDict["charName"]
+
+  charList.append(morality)
+  charList.append(antagonize)
+  charList.append(antThresh)
+  charList.append(charName)
+
+#call this to change any values in the character's dictionary
+def UpdateCharDict(dict, moralityf, antagonizef, antThreshf):
+  #print(dict)
   #time.sleep(5)
-  if SarahDict["morality"] != morality:
-    SarahDict["morality"] != morality
-    
-  if SarahDict["antagonize"] != antagonize:
-    SarahDict["antagonize"] = antagonize
-    
-  if SarahDict["antThresh"] != antThresh:
-    SarahDict["antThresh"] = antThresh
+  
+  if moralityf != 0:
+    if dict["morality"] != moralityf:
+      dict["morality"] = moralityf
+  
+  if antagonizef != 0:
+    if dict["antagonize"] != antagonizef:
+      dict["antagonize"] = antagonizef
+
+  if antThreshf != 0:
+    if dict["antThresh"] != antThreshf:
+      dict["antThresh"] = antThreshf
+      
   #time.sleep(5)
-  #print(SarahDict)
+  #print(dict)
 
 #intialize char dicts in case values are broken somehow
 def InitializeCharDicts():
   #char 1
-  UpdateCharDict(SarahDictBaseValues["morality"], SarahDictBaseValues["antagonize"], SarahDictBaseValues["antThresh"])
+  UpdateCharDict(SarahDict, 0, 0, 0)
