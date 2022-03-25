@@ -44,13 +44,13 @@ def nameBlock1():
     resources.slowprint2(Fore.BLUE+"Since you seem to be reluctant to give an identifier, I'll just call you Traveler.")
     resources.subName = True
     #this function makes sarah's antagonize go up to 1.
-    characters.UpdateCharDict(characters.SarahDict, 0, 1, 0)
+    characters.UpdateCharDict(characters.Char1Dict, 0, 1, 0)
     name = "Traveler"
 
   #don't threaten your friends...
   if name == 'kill' or name == 'Kill' or name == 'Murder' or name == 'murder' or name == 'erase' or name == 'Erase' or name == 'die' or name == 'Die' or name == 'Die!!!':
     resources.threatCount += 1
-    characters.UpdateCharDict(characters.SarahDict, 0, 1, 0)
+    characters.UpdateCharDict(characters.Char1Dict, 0, 1, 0)
     resources.slowprint2(Fore.BLUE+"You know, it isn't really nice to threaten someone less than a minute after you meet them.")
 
   if resources.threatCount > 0:
@@ -60,7 +60,7 @@ def nameBlock1():
 
     if name == 'kill' or name == 'Kill' or name == 'Murder' or name == 'murder' or name == 'erase' or name == 'Erase' or name == 'die' or name == 'Die' or name == 'Die!!!':
       resources.threatCount += 1
-      characters.UpdateCharDict(characters.SarahDict, 0, 1, 0)
+      characters.UpdateCharDict(characters.Char1Dict, 0, 1, 0)
       resources.slowprint2(Fore.BLUE+"Why do you insist on being unkind?")
       name = "Traveler"
 
@@ -123,7 +123,7 @@ def op1():
     resources.slowprint1(Fore.BLUE+"""I'll have you know I am very real. 
     I even have a name, a wonderful name, better than yours, """+name+".")
     resources.slowprint1("Just in case you were wondering, it is "+characters.char1Name+".")
-    characters.UpdateCharDict(characters.SarahDict, 0, 1, 0)
+    characters.UpdateCharDict(characters.Char1Dict, 0, 1, 0)
 
   elif choice1 == "3":
     if characters.sameName == False:

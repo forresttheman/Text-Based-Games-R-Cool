@@ -4,11 +4,6 @@ import resources
 from resources import *
 from characters import *
 
-#player stats/variables
-playerMorality = 100 
-playerAntagonize = 0 
-#adds up, if passes threshold, character gets mad at you. 
-#0 for morality is completely murderous, uncaring, the epitamy of evil. 200 is angelic and wonderful. 100 is neutral
 
 #antagonize thresholds for characters
 veryFriendly = 50
@@ -18,20 +13,13 @@ unFriendly = 20
 veryUnFriendly = 10
 insane = 5
 
-#char lists
-characterList = []
-char1MoralitySaved = []
-
-#char specific lists
-SarahList = []
-
 #character names and related things
 char1Name = "Sarah"
 sameName = False
 
 #character dictionaries
 #these hold working values and start out with base values
-SarahDict = {
+Char1Dict = {
   "morality": 150,
   "antagonize": 0,
   "antThresh": veryFriendly,
@@ -45,30 +33,28 @@ SarahDict = {
 
 #call this to change any values in the character's dictionary
 def UpdateCharDict(dict, moralityD, antagonizeD, antThreshD):
-  #print(dict)
-  #time.sleep(3)
-
   #if the morality has been changed
   if moralityD != 0:
     #add the new morality to old morality and make that the new morality value in dictionary
-    moralityDelta = dict["morality"] + moralityD
-    dict["morality"] = moralityDelta
+    moralityNew = dict["morality"] + moralityD
+    dict["morality"] = moralityNew
 
-  #is the antagonize has changed
+  #if the antagonize has changed
   if antagonizeD != 0:
-    antagonizeDelta = dict["antagonize"] + antagonizeD
-    dict["antagonize"] = antagonizeDelta
+    antagonizeNew = dict["antagonize"] + antagonizeD
+    dict["antagonize"] = antagonizeNew
 
   if antThreshD != 0:
-    #if the antagonize threshold is different, update it
+    #if the antagonize threshold is different
     if dict["antThresh"] != antThreshD:
       dict["antThresh"] = antThreshD
 
+  #if exceeded antagonize threshold
   if dict["antagonize"] > dict["antThresh"]:
     resources.exAntThresh = True
     
 
-#intialize char dicts in case values are broken somehow
+#intialize char dicts (may be unnecessary, but it's good to make sure everything works)
 def InitializeCharDicts():
   #char 1
-  UpdateCharDict(SarahDict, 0, 0, 0)
+  UpdateCharDict(Char1Dict, 0, 0, 0)
