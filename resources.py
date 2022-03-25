@@ -2,10 +2,23 @@ import sys
 import time
 import os
 import colorama
+import random
 from colorama import Fore
 from resources import *
 
+#variables
+tryAgain = False
+subName = False
 
+#counters
+failCount = 0
+threatCount = 0
+
+#lists
+randColor = [Fore.RED, Fore.BLUE]
+
+
+#FUNCTIONS#
 def clearConsole():
   command = 'clear'
   if os.name in ('nt', 'dos'):
@@ -22,11 +35,19 @@ def indentPoint5x2():
   time.sleep(0.5)
 
 #loading animations
-def slowload():
+def slowload(index):
+  clearConsole()
   slowprint2(Fore.GREEN+"""NODE SECURITY ACTIVATED.
 INITIALIZING SIGNAL DEBUG PROGRAM""")
-  for i in range(3):
-    slowprint3(""". . .""")
+  for i in range(index):
+    slowprint1(random.choice(randColor)+"\.\     /._.\     /._.\.")
+    slowprint1(" \.\   /./ \.\   /./ \.\.")
+    slowprint1("  \.\_/./   \.\_/./   \.\.")
+    slowprint1("   \.../     \.../     \.")
+    time.sleep(0.5)
+    clearConsole()
+  slowprint1(Fore.GREEN+"TASK FINISHED")
+    
   
 
 #SLOWPRINTS#

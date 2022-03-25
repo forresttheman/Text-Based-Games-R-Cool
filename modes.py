@@ -17,7 +17,4 @@ from ifs import *
 def start():
   resources.clearConsole()
   ifs.nameBlock1()
-
-
-def op1():
   ifs.op1()

@@ -9,4 +9,3 @@ from characters import *
 ##main##
 #refactor into one function
 modes.start()
-modes.op1()

@@ -60,7 +60,6 @@ def UpdateCharDict(morality, antagonize, antThresh):
   #time.sleep(5)
   #print(SarahDict)
 
-
 #intialize char dicts in case values are broken somehow
 def InitializeCharDicts():
   #char 1
