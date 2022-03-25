@@ -9,6 +9,8 @@ from resources import *
 #variables
 tryAgain = False
 subName = False
+#exceeded antagonize threshold
+exAntThresh = False
 
 #counters
 failCount = 0

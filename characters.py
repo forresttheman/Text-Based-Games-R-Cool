@@ -1,11 +1,14 @@
 import time
 import characters
+import resources
+from resources import *
 from characters import *
 
 #player stats/variables
-morality = 100 #0 is completely murderous, uncaring, 200 is angelic and wonderful, 100 is neutral
-antagonize = 0 
-#adds up, if passes threshold, character gets mad at you. Have diff aggression levels for repeated bad/good actions
+playerMorality = 100 
+playerAntagonize = 0 
+#adds up, if passes threshold, character gets mad at you. 
+#0 for morality is completely murderous, uncaring, the epitamy of evil. 200 is angelic and wonderful. 100 is neutral
 
 #antagonize thresholds for characters
 veryFriendly = 50
@@ -22,7 +25,7 @@ char1MoralitySaved = []
 #char specific lists
 SarahList = []
 
-#names and related things
+#character names and related things
 char1Name = "Sarah"
 sameName = False
 
@@ -35,18 +38,10 @@ SarahDict = {
   "charName": char1Name
 }
 
-#functions
-#do i even need this function?
-def charFrame(charDict, charList):
-  morality = charDict["morality"]
-  antagonize = charDict["antagonize"]
-  antThresh = charDict["antThresh"]
-  charName = charDict["charName"]
 
-  charList.append(morality)
-  charList.append(antagonize)
-  charList.append(antThresh)
-  charList.append(charName)
+###########
+#FUNCTIONS#
+###########
 
 #call this to change any values in the character's dictionary
 def UpdateCharDict(dict, moralityD, antagonizeD, antThreshD):
@@ -54,8 +49,7 @@ def UpdateCharDict(dict, moralityD, antagonizeD, antThreshD):
   #time.sleep(3)
 
   #if the morality has been changed
-  #-1 bcs a character with a value of 0 is the evil extreme
-  if moralityD != -1:
+  if moralityD != 0:
     #add the new morality to old morality and make that the new morality value in dictionary
     moralityDelta = dict["morality"] + moralityD
     dict["morality"] = moralityDelta
@@ -66,14 +60,15 @@ def UpdateCharDict(dict, moralityD, antagonizeD, antThreshD):
     dict["antagonize"] = antagonizeDelta
 
   if antThreshD != 0:
-    #if the anntagonize threshold is different, update it
+    #if the antagonize threshold is different, update it
     if dict["antThresh"] != antThreshD:
       dict["antThresh"] = antThreshD
-      
-  #time.sleep(2)
-  #print(dict)
+
+  if dict["antagonize"] > dict["antThresh"]:
+    resources.exAntThresh = True
+    
 
 #intialize char dicts in case values are broken somehow
 def InitializeCharDicts():
   #char 1
-  UpdateCharDict(SarahDict, -1, 1, 0)
+  UpdateCharDict(SarahDict, 0, 0, 0)
